@@ -1,18 +1,95 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# 🔹 System & cache files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+._*
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.lock
+*.log
+*.pid
+*.seed
+*.cache
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# 🔹 Editor & IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# 🔹 Dependencies & package managers
+node_modules/
+bower_components/
+vendor/
+pip-wheel-metadata/
+__pycache__/
 
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem 
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+# 🔹 Build & distribution files
+/build/
+dist/
+_site/ # Jekyll
+*.min.js
+*.min.css
+
+# 🔹 Logs, databases & temporary files
+*.log
+*.sql
+*.sqlite
+*.db
+*.sqlite3
+*.bak
+*.swp
+*.swo
+*.pid
+*.seed
+
+# 🔹 Compiled files & bytecode
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+*.whl
+__pycache__/
+
+# 🔹 Compressed & archive files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# 🔹 Environment & security files
+.env
+*.pem
+*.key
+*.crt
+*.cert
+*.der
+*.p12
+
+# 🔹 Docker & CI/CD configurations
+docker-compose.override.yml
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 🔹 Explicitly tracked files
+!.dockerignore
+!.editorconfig
+!.env.example
+!.git-blame-ignore-revs
+!.gitignore
+!.nvmrc
+!.phpcs.xml.dist
+
