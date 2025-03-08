@@ -7,7 +7,7 @@
 
 <!-- Logo -->
 <a href="https://github.com/franckferman/LettreCitoyenne-Narcotrafic">
-  <img src="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/main/docs/github/graphical_resources/Opposition%20%C3%A0%20la%20Loi%20Narcotrafic.png" alt="banner-LettreCitoyenne-Narcotrafic" width="auto" height="auto">
+  <img src="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/stable/docs/github/graphical_resources/opposition-loi-narcotrafic.png" alt="banner-LettreCitoyenne-Narcotrafic" width="auto" height="auto">
 </a>
 
 <!-- Title & Tagline -->
