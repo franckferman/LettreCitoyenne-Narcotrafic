@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Opposition à la Loi Narcotrafic - Défendons nos libertés</title>
+    <meta name="description" content="Exprimons notre opposition à la loi Narcotrafic qui menace nos libertés : surveillance de masse, censure et atteinte au chiffrement.">
+    <meta name="keywords" content="loi narcotrafic, surveillance, liberté, chiffrement, démocratie, censure">
+    <meta name="author" content="Franck FERMAN">
+
+    <meta property="og:title" content="Opposition à la Loi Narcotrafic - Défendons nos libertés">
+    <meta property="og:description" content="Un site permettant d’envoyer un email aux députés pour protester contre la loi Narcotrafic.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/main/Opposition%20%C3%A0%20la%20Loi%20Narcotrafic.png">
+    <meta property="og:url" content="https://narcotrafic.franckferman.fr/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Opposition à la Loi Narcotrafic - Défendons nos libertés">
+    <meta name="twitter:description" content="Envoyez un mail aux députés pour protester contre la loi Narcotrafic qui menace nos libertés fondamentales.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/main/Opposition%20%C3%A0%20la%20Loi%20Narcotrafic.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            background: #1e1e1e;
+            padding: 25px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        h1, h2 {
+            color: #ff4c4c;
+        }
+
+        p, li {
+            font-size: 16px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus, input:focus {
+            border-color: #ff4c4c;
+            outline: none;
+            box-shadow: 0 0 6px rgba(255, 76, 76, 0.4);
+        }
+
+        button {
+            width: 100%;
+            background-color: #ff4c4c;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .preview-container, .email-list-container {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #2b2b2b;
+        }
+
+        .preview-container pre, .email-list-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📢 Dites NON à la loi « Narcotrafic » !</h1>
+        <p>Cette loi est une attaque directe contre nos libertés fondamentales : surveillance de masse, censure, backdoors dans le chiffrement... Il est urgent d’agir !</p>
+        
+        <h2>❌ Pourquoi cette loi est-elle dangereuse ?</h2>
+        <ul>
+            <li><b>📡 Surveillance secrète</b> : Introduction du « dossier coffre » qui rend invisibles les preuves de surveillance policière. Aucun accès aux dossiers pour les avocats ou accusés, écoute et captation des données sans contrôle judiciaire.</li>
+            <li><b>🔐 Fin du chiffrement</b> : Obligation pour Signal, WhatsApp et Telegram d'introduire une porte dérobée accessible à l’État. Cela affaiblit la sécurité de tous.</li>
+            <li><b>🛑 Censure sur Internet</b> : La police pourra faire supprimer des contenus sans l’intervention d’un juge, risquant la suppression abusive de discussions légitimes.</li>
+            <li><b>🕵️ Boîtes noires et Surveillance de masse</b> : Extension des « boîtes noires » : des algorithmes espionneront en temps réel toutes les connexions Internet en France.</li>
+            <li><b>📷 Espionnage des appareils</b> : Légalisation de l’activation à distance des micros et caméras des téléphones et ordinateurs, une intrusion totale dans la vie privée.</li>
+            <li><b>🚨 Criminalisation élargie</b> : Expansion des pouvoirs de surveillance sous prétexte de lutter contre le narcotrafic, mais qui pourrait être utilisé contre des militants et opposants.</li>
+        </ul>
+        
+        <h2>📢 Faites entendre votre voix !</h2>
+        <form id="emailForm">
+            <fieldset>
+                <legend>📝 Vos informations</legend>
+
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" placeholder="Votre nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" placeholder="Votre prénom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message personnalisé (optionnel) :</label>
+                    <textarea id="message" placeholder="Ajoutez un message personnel"></textarea>
+                </div>
+
+                <button type="button" onclick="generatePreview()">📩 Prévisualiser le message</button>
+            </fieldset>
+        </form>
+        
+        <div id="preview" class="preview-container" aria-live="polite">
+            <h2>Aperçu du message</h2>
+            <pre id="preview-text"></pre>
+            <button onclick="copyToClipboard()">📋 Copier le message</button>
+            <button id="mailto-button">📧 Envoyer via Mail</button>
+        </div>
+        
+        <div id="email-list" class="email-list-container">
+            <h2>📜 Liste des emails des députés</h2>
+            <pre id="email-text"></pre>
+            <button onclick="copyEmails()">📋 Copier les emails</button>
+        </div>
+    </div>
+
+<script>
+    const emailList = [
+        "farida.amrani@assemblee-nationale.fr", "gabriel.attal@assemblee-nationale.fr", "steevy.gustave@assemblee-nationale.fr",
+        "julie.ozenne@assemblee-nationale.fr", "jerome.guedj@assemblee-nationale.fr", "claire.lejeune@assemblee-nationale.fr",
+        "Marie-Pierre.Rixain@assemblee-nationale.fr", "antoine.leaument@assemblee-nationale.fr", "nathalie.daconceicaocarvalho@assemblee-nationale.fr",
+        "berenger.cernon@assemblee-nationale.fr", "paul.midy@assemblee-nationale.fr", "jean-didier.berger@assemblee-nationale.fr",
+        "maud.bregeon@assemblee-nationale.fr", "Celine.Calvez@assemblee-nationale.fr", "pierre.cazeneuve@assemblee-nationale.fr",
+        "elisabeth.demaistre@assemblee-nationale.fr", "Elsa.Faucillon@assemblee-nationale.fr", "philippe.juvin@assemblee-nationale.fr",
+        "thomas.lam@assemblee-nationale.fr", "Constance.LeGrip@assemblee-nationale.fr", "sabrina.sebaihi@assemblee-nationale.fr",
+        "aurelien.saintoul@assemblee-nationale.fr", "david.amiel@assemblee-nationale.fr", "prisca.thevenot@assemblee-nationale.fr",
+        "pouria.amirshahi@assemblee-nationale.fr", "olivia.gregoire@assemblee-nationale.fr", "rodrigo.arenas@assemblee-nationale.fr",
+        "lea.balage@assemblee-nationale.fr", "aymeric.caron@assemblee-nationale.fr", "sophia.chikirou@assemblee-nationale.fr",
+        "emmanuel.gregoire@assemblee-nationale.fr", "sandrine.rousseau@assemblee-nationale.fr", "celine.hervieu@assemblee-nationale.fr",
+        "emmanuelle.hoffman@assemblee-nationale.fr", "jean.laussucq@assemblee-nationale.fr", "sarah.legrain@assemblee-nationale.fr",
+        "Sylvain.Maillard@assemblee-nationale.fr", "josephine.missoffe@assemblee-nationale.fr", "Daniele.Obono@assemblee-nationale.fr",
+        "eva.sas@assemblee-nationale.fr", "danielle.simonnet@assemblee-nationale.fr", "arnaud.bonnet@assemblee-nationale.fr",
+        "Olivier.Faure@assemblee-nationale.fr", "maxime.laisney@assemblee-nationale.fr", "franck.riester@assemblee-nationale.fr"
+    ];
+
+    function generatePreview() {
+        const nom = document.getElementById('nom').value.trim();
+        const prenom = document.getElementById('prenom').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!nom || !prenom) {
+            alert("Veuillez remplir votre nom et prénom.");
+            return;
+        }
+
+        let body = `Bonjour,\n\nJe vous écris pour exprimer mon opposition à la loi dite "Narcotrafic", qui représente une menace directe pour les libertés fondamentales des citoyens français. `
+                 + `Sous couvert de lutte contre le trafic de drogue, ce texte élargit drastiquement les pouvoirs de surveillance de la police et des services de renseignement, mettant en péril `
+                 + `le droit à la vie privée, la protection des données et la liberté d'expression.\n\n`;
+
+        body += `🔴 Cette loi met en place :\n`
+             + `- Une surveillance de masse secrète avec le "dossier coffre", empêchant les citoyens et leurs avocats de contester les moyens utilisés contre eux.\n`
+             + `- L’affaiblissement du chiffrement en imposant des portes dérobées aux messageries sécurisées comme Signal et WhatsApp.\n`
+             + `- La censure extrajudiciaire : la police pourra supprimer des contenus sur Internet sans intervention du juge.\n`
+             + `- L'activation à distance des micros et caméras de téléphones et ordinateurs, une menace énorme pour la vie privée.\n`
+             + `- Une extension du régime de "criminalité organisée" qui pourra être utilisé pour surveiller des militants et des opposants politiques.\n\n`;
+
+        body += `❌ Cette loi ne s’attaque pas aux criminels, elle affaiblit nos droits :\n`
+             + `- Les véritables criminels continueront d’utiliser des solutions sécurisées hors de portée des autorités.\n`
+             + `- En revanche, ce sont les citoyens, journalistes, avocats et militants qui subiront une surveillance abusive et une censure arbitraire.\n\n`;
+
+        body += `📢 Si vous votez cette loi, vous porterez la responsabilité d’un dangereux précédent pour la démocratie française.\n`
+             + `➡️ Je vous demande de rejeter ce texte et de défendre les libertés fondamentales qui font la France.\n\n`;
+
+        if (message) body += `\n${message}\n\n`;
+
+        body += `Dans l’attente de votre position sur ce texte fondamental,\n\nCordialement,\n${prenom} ${nom}.\n`;
+
+        document.getElementById("preview-text").innerText = body;
+        document.getElementById("preview").style.display = "block";
+        document.getElementById("email-text").innerText = emailList.join(", ");
+        document.getElementById("email-list").style.display = "block";
+
+        document.getElementById("mailto-button").onclick = function() {
+            let mailtoLink = `mailto:infos@assemblee-nationale.fr?cc=contact@franckferman.fr&bcc=${encodeURIComponent(emailList.join(","))}&subject=${encodeURIComponent("Lettre d'un citoyen engagé - Opposition à la Loi Narcotrafic")}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+        };
+    }
+
+    function copyToClipboard() {
+        let textToCopy = document.getElementById("preview-text").innerText;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => alert("Message copié dans le presse-papiers !"))
+            .catch(err => console.error("Erreur lors de la copie du message : ", err));
+    }
+
+    function copyEmails() {
+        let emailText = document.getElementById("email-text").innerText;
+        navigator.clipboard.writeText(emailText)
+            .then(() => alert("Emails copiés dans le presse-papiers !"))
+            .catch(err => console.error("Erreur lors de la copie des emails : ", err));
+    }
+</script>
+</body>
+</html>
