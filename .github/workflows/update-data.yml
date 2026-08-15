@@ -1,0 +1,57 @@
+name: Update deputies data
+
+# Syncs data/deputes.json with the latest export published by
+# https://github.com/franckferman/Scraping-Deputes-France (release data-latest).
+on:
+  schedule:
+    # Every Monday at 19:42 UTC - 19 for Orwell's 1984, 42 for the Answer.
+    # Runs after Scraping-Deputes-France refreshes its `data-latest`
+    # release (Mondays ~05:17 UTC).
+    - cron: '42 19 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download latest deputies data
+        run: |
+          mkdir -p data
+          curl -fsSL --retry 3 \
+            https://github.com/franckferman/Scraping-Deputes-France/releases/download/data-latest/deputes.json \
+            -o data/deputes.json
+
+      - name: Validate JSON
+        run: |
+          python3 -c "
+          import json, sys
+          with open('data/deputes.json', encoding='utf-8') as f:
+              data = json.load(f)
+          assert isinstance(data, list) and len(data) > 0, 'empty or invalid data'
+          required = {'nom', 'region', 'departement', 'email', 'groupe', 'circonscription'}
+          missing = [d for d in data if not required.issubset(d)]
+          assert not missing, f'{len(missing)} entries with missing fields'
+          print(f'OK: {len(data)} deputies')
+          "
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- data/deputes.json; then
+            echo "No change in deputies data."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/deputes.json
+          git commit -m "chore(data): update deputies data from Scraping-Deputes-France"
+          git push

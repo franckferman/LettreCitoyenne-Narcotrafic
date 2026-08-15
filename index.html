@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Opposition à la Loi Narcotrafic - Écrivez à vos députés</title>
+    <meta name="description" content="Exprimez votre opposition à la loi Narcotrafic : écrivez en quelques clics aux députés de votre choix pour défendre les libertés fondamentales.">
+    <meta name="keywords" content="loi narcotrafic, surveillance, liberté, chiffrement, démocratie, censure">
+    <meta name="author" content="Franck FERMAN">
+
+    <meta property="og:title" content="Opposition à la Loi Narcotrafic - Écrivez à vos députés">
+    <meta property="og:description" content="Un site permettant d'envoyer un email aux députés pour protester contre la loi Narcotrafic.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/main/docs/github/graphical_resources/opposition-loi-narcotrafic.png">
+    <meta property="og:url" content="https://narcotrafic.franckferman.fr/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Opposition à la Loi Narcotrafic - Écrivez à vos députés">
+    <meta name="twitter:description" content="Envoyez un mail aux députés pour protester contre la loi Narcotrafic qui menace nos libertés fondamentales.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/franckferman/LettreCitoyenne-Narcotrafic/refs/heads/main/docs/github/graphical_resources/opposition-loi-narcotrafic.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg: #0f1115;
+            --surface: #171a21;
+            --surface-2: #1f232d;
+            --border: #2c313d;
+            --text: #e6e8ee;
+            --text-dim: #9aa1b0;
+            --accent: #e0483e;
+            --accent-hover: #c23a31;
+            --accent-soft: rgba(224, 72, 62, 0.12);
+            --focus-ring: rgba(224, 72, 62, 0.45);
+            --radius: 10px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 48px 20px 64px;
+        }
+
+        /* ---------- Header ---------- */
+
+        header.hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero p.lede {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ---------- Cards & sections ---------- */
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ---------- Dangers list ---------- */
+
+        .dangers {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 14px;
+        }
+
+        .dangers li {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.92rem;
+        }
+
+        .dangers li strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .dangers li span {
+            color: var(--text-dim);
+        }
+
+        /* ---------- Form ---------- */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-grid .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        input[type="text"], textarea, select {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            background: var(--surface-2);
+            color: var(--text);
+            font: inherit;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 11px 13px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #6b7280;
+        }
+
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239aa1b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 38px;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+            white-space: pre-wrap;
+        }
+
+        /* ---------- Buttons ---------- */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 22px;
+            font: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        .btn.secondary {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn.secondary:hover {
+            background: var(--border);
+        }
+
+        .btn.small {
+            padding: 8px 14px;
+            font-size: 0.85rem;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        /* ---------- Deputies picker ---------- */
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .picker-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quick-select {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+        }
+
+        .quick-select label {
+            margin: 0;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .quick-select input[type="number"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 76px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 10px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .quick-select input[type="number"]:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        .quick-select-note {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .counter {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .counter strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .deputy-list {
+            max-height: 340px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface-2);
+        }
+
+        .deputy-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .deputy-list::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .deputy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 14px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        .deputy-item:last-child {
+            border-bottom: none;
+        }
+
+        .deputy-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .deputy-item input[type="checkbox"] {
+            margin-top: 4px;
+            accent-color: var(--accent);
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .deputy-item .who {
+            font-size: 0.92rem;
+        }
+
+        .deputy-item .who .name {
+            font-weight: 500;
+        }
+
+        .deputy-item .who .meta {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .list-status {
+            padding: 24px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.92rem;
+        }
+
+        .list-status.error {
+            color: var(--accent);
+        }
+
+        /* ---------- Preview & output ---------- */
+
+        .preview-box, .emails-box {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            margin-top: 16px;
+        }
+
+        .preview-box pre, .emails-box pre {
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin: 0;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .emails-box pre {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            max-height: 140px;
+        }
+
+        .hint {
+            font-size: 0.83rem;
+            color: var(--text-dim);
+            margin-top: 12px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        /* ---------- Toast ---------- */
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 12px 22px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.83rem;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <header class="hero">
+            <h1>Dites non à la loi <span class="accent">« Narcotrafic »</span></h1>
+            <p class="lede">
+                Sous couvert de lutte contre le trafic de drogue, ce texte étend considérablement
+                les pouvoirs de surveillance de l'État. Écrivez directement à vos députés pour
+                exprimer votre opposition, en quelques clics.
+            </p>
+        </header>
+
+        <section class="card" aria-labelledby="dangers-title">
+            <h2 id="dangers-title">Pourquoi cette loi est dangereuse</h2>
+            <ul class="dangers">
+                <li>
+                    <strong>Surveillance secrète</strong>
+                    <span>Le « dossier coffre » rend invisibles les preuves de surveillance policière : ni les avocats ni les accusés n'y ont accès, sans contrôle judiciaire effectif.</span>
+                </li>
+                <li>
+                    <strong>Fin du chiffrement</strong>
+                    <span>Signal, WhatsApp et Telegram pourraient être contraints d'introduire une porte dérobée accessible à l'État, affaiblissant la sécurité de tous.</span>
+                </li>
+                <li>
+                    <strong>Censure sans juge</strong>
+                    <span>La police pourrait faire supprimer des contenus en ligne sans intervention d'un magistrat, au risque de faire disparaître des discussions légitimes.</span>
+                </li>
+                <li>
+                    <strong>Boîtes noires généralisées</strong>
+                    <span>Des algorithmes analyseraient en temps réel l'ensemble des connexions Internet en France, une surveillance de masse déconnectée de toute suspicion individuelle.</span>
+                </li>
+                <li>
+                    <strong>Espionnage des appareils</strong>
+                    <span>L'activation à distance des micros et caméras de téléphones et ordinateurs serait légalisée : une intrusion totale dans la vie privée.</span>
+                </li>
+                <li>
+                    <strong>Criminalisation élargie</strong>
+                    <span>Le régime de « criminalité organisée », censé viser le narcotrafic, pourrait être détourné contre des militants, des journalistes ou des opposants.</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="infos-title">
+            <h2 id="infos-title"><span class="step-badge">1</span> Vos informations</h2>
+            <form id="emailForm">
+                <div class="form-grid">
+                    <div>
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" placeholder="Votre prénom" autocomplete="given-name" required>
+                    </div>
+                    <div>
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" placeholder="Votre nom" autocomplete="family-name" required>
+                    </div>
+                    <div class="full">
+                        <label for="message">Message personnel (optionnel)</label>
+                        <textarea id="message" placeholder="Ajoutez un paragraphe personnel, il sera inséré avant la signature."></textarea>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="card" aria-labelledby="destinataires-title">
+            <h2 id="destinataires-title"><span class="step-badge">2</span> Choisissez vos destinataires</h2>
+
+            <div class="filters">
+                <div>
+                    <label for="search">Rechercher un député</label>
+                    <input type="text" id="search" placeholder="Nom du député…" disabled>
+                </div>
+                <div>
+                    <label for="filter-departement">Département</label>
+                    <select id="filter-departement" disabled>
+                        <option value="">Tous</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-region">Région</label>
+                    <select id="filter-region" disabled>
+                        <option value="">Toutes</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-groupe">Groupe politique</label>
+                    <select id="filter-groupe" disabled>
+                        <option value="">Tous</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="picker-toolbar">
+                <span class="counter" id="counter" aria-live="polite">Chargement des députés…</span>
+                <div class="btn-row" style="margin-top:0">
+                    <button type="button" class="btn secondary small" id="select-all" disabled>Tout sélectionner</button>
+                    <button type="button" class="btn secondary small" id="select-none" disabled>Tout désélectionner</button>
+                </div>
+            </div>
+
+            <div class="quick-select">
+                <label for="random-count">Sélection aléatoire :</label>
+                <input type="number" id="random-count" min="1" max="577" value="40" disabled>
+                <button type="button" class="btn secondary small" id="select-random" disabled>Tirer au hasard</button>
+                <span class="quick-select-note">parmi les députés affichés (combinez avec les filtres, ex. votre département)</span>
+            </div>
+
+            <div class="deputy-list" id="deputy-list">
+                <div class="list-status" id="list-status">Récupération de la liste des députés en cours…</div>
+            </div>
+
+            <p class="hint">
+                Par défaut, 40 députés sont tirés au hasard : les liens email ont une longueur maximale,
+                ce qui limite en pratique le nombre de destinataires à environ 50. Pour toucher plus de
+                députés, renouvelez l'envoi avec un nouveau tirage ou utilisez « Copier les emails ».
+                Données issues de
+                <a href="https://github.com/franckferman/Scraping-Deputes-France" style="color:var(--accent)">Scraping-Deputes-France</a>,
+                synchronisées automatiquement chaque semaine depuis le site de l'Assemblée nationale.
+            </p>
+        </section>
+
+        <section class="card" aria-labelledby="envoi-title">
+            <h2 id="envoi-title"><span class="step-badge">3</span> Prévisualisez et envoyez</h2>
+
+            <button type="button" class="btn" id="preview-btn">Prévisualiser le message</button>
+
+            <div class="preview-box" id="preview-box" hidden>
+                <pre id="preview-text" aria-live="polite"></pre>
+            </div>
+
+            <div class="emails-box" id="emails-box" hidden>
+                <pre id="emails-text"></pre>
+            </div>
+
+            <div class="btn-row" id="actions" hidden>
+                <button type="button" class="btn" id="mailto-btn">Envoyer par email</button>
+                <button type="button" class="btn secondary" id="copy-message-btn">Copier le message</button>
+                <button type="button" class="btn secondary" id="copy-emails-btn">Copier les emails</button>
+            </div>
+
+            <p class="hint" id="mailto-hint" hidden>
+                Votre logiciel de messagerie va s'ouvrir avec les destinataires pré-remplis en copie cachée (CCI).
+                Au-delà d'une cinquantaine de destinataires, certains logiciels refusent les liens trop longs :
+                utilisez alors « Copier les emails » et collez-les manuellement dans le champ CCI.
+            </p>
+        </section>
+
+        <footer>
+            <p>
+                Initiative citoyenne - code source sur
+                <a href="https://github.com/franckferman/LettreCitoyenne-Narcotrafic">GitHub</a>.
+            </p>
+            <p>
+                Pour approfondir : l'analyse de
+                <a href="https://www.laquadrature.net/narcotraficotage/">La Quadrature du Net</a>.
+            </p>
+            <p>© 2026 <a href="https://franckferman.fr">Franck Ferman</a>. Tous droits réservés.</p>
+        </footer>
+
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+    'use strict';
+
+    // Deputies data is synchronized weekly into this repository by a GitHub
+    // Action, from the `data-latest` release of Scraping-Deputes-France:
+    // https://github.com/franckferman/Scraping-Deputes-France
+    var DATA_URL = 'data/deputes.json';
+    var MAILTO_SOFT_LIMIT = 50; // beyond this, mailto URLs become unreliable
+    var DEFAULT_RANDOM_COUNT = 40; // default recipients: keeps mailto links working
+
+    var deputies = [];
+    var selected = new Set(); // emails
+
+    var els = {
+        search: document.getElementById('search'),
+        filterDepartement: document.getElementById('filter-departement'),
+        filterRegion: document.getElementById('filter-region'),
+        filterGroupe: document.getElementById('filter-groupe'),
+        counter: document.getElementById('counter'),
+        list: document.getElementById('deputy-list'),
+        listStatus: document.getElementById('list-status'),
+        selectAll: document.getElementById('select-all'),
+        selectNone: document.getElementById('select-none'),
+        randomCount: document.getElementById('random-count'),
+        selectRandom: document.getElementById('select-random'),
+        prenom: document.getElementById('prenom'),
+        nom: document.getElementById('nom'),
+        message: document.getElementById('message'),
+        previewBtn: document.getElementById('preview-btn'),
+        previewBox: document.getElementById('preview-box'),
+        previewText: document.getElementById('preview-text'),
+        emailsBox: document.getElementById('emails-box'),
+        emailsText: document.getElementById('emails-text'),
+        actions: document.getElementById('actions'),
+        mailtoBtn: document.getElementById('mailto-btn'),
+        mailtoHint: document.getElementById('mailto-hint'),
+        copyMessageBtn: document.getElementById('copy-message-btn'),
+        copyEmailsBtn: document.getElementById('copy-emails-btn'),
+        toast: document.getElementById('toast')
+    };
+
+    var toastTimer = null;
+
+    function showToast(text) {
+        els.toast.textContent = text;
+        els.toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+            els.toast.classList.remove('show');
+        }, 2600);
+    }
+
+    function uniqueSorted(key) {
+        var values = deputies.map(function (d) { return d[key]; }).filter(Boolean);
+        return Array.from(new Set(values)).sort(function (a, b) {
+            return a.localeCompare(b, 'fr');
+        });
+    }
+
+    function fillSelect(select, values) {
+        values.forEach(function (value) {
+            var option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+            select.appendChild(option);
+        });
+    }
+
+    function filteredDeputies() {
+        var query = els.search.value.trim().toLowerCase();
+        var dep = els.filterDepartement.value;
+        var reg = els.filterRegion.value;
+        var grp = els.filterGroupe.value;
+        return deputies.filter(function (d) {
+            if (query && d.nom.toLowerCase().indexOf(query) === -1) return false;
+            if (dep && d.departement !== dep) return false;
+            if (reg && d.region !== reg) return false;
+            if (grp && d.groupe !== grp) return false;
+            return true;
+        });
+    }
+
+    function updateCounter(visibleCount) {
+        els.counter.innerHTML = '<strong>' + selected.size + '</strong> destinataire' +
+            (selected.size > 1 ? 's' : '') + ' sélectionné' + (selected.size > 1 ? 's' : '') +
+            ' - ' + visibleCount + ' affiché' + (visibleCount > 1 ? 's' : '');
+    }
+
+    function renderList() {
+        var visible = filteredDeputies();
+        els.list.innerHTML = '';
+
+        if (visible.length === 0) {
+            var empty = document.createElement('div');
+            empty.className = 'list-status';
+            empty.textContent = 'Aucun député ne correspond à ces critères.';
+            els.list.appendChild(empty);
+        } else {
+            var fragment = document.createDocumentFragment();
+            visible.forEach(function (d) {
+                var label = document.createElement('label');
+                label.className = 'deputy-item';
+
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = selected.has(d.email);
+                checkbox.setAttribute('aria-label', 'Sélectionner ' + d.nom);
+                checkbox.addEventListener('change', function () {
+                    if (checkbox.checked) {
+                        selected.add(d.email);
+                    } else {
+                        selected.delete(d.email);
+                    }
+                    updateCounter(visible.length);
+                });
+
+                var who = document.createElement('span');
+                who.className = 'who';
+
+                var name = document.createElement('span');
+                name.className = 'name';
+                name.textContent = d.nom;
+
+                var meta = document.createElement('span');
+                meta.className = 'meta';
+                meta.textContent = ' - ' + (d.circonscription || d.departement) + ' · ' + d.groupe;
+
+                who.appendChild(name);
+                who.appendChild(meta);
+                label.appendChild(checkbox);
+                label.appendChild(who);
+                fragment.appendChild(label);
+            });
+            els.list.appendChild(fragment);
+        }
+
+        updateCounter(visible.length);
+    }
+
+    function setSelectionForVisible(add) {
+        var visible = filteredDeputies();
+        visible.forEach(function (d) {
+            if (add) {
+                selected.add(d.email);
+            } else {
+                selected.delete(d.email);
+            }
+        });
+        renderList();
+    }
+
+    // Replaces the current selection with `count` deputies drawn at random
+    // from the currently filtered list (so filters + random = random pick
+    // within e.g. one's own departement). Keeps the recipient count under
+    // the practical mailto URL length limit (~50 addresses).
+    function randomSelect() {
+        var pool = filteredDeputies();
+        if (pool.length === 0) {
+            showToast('Aucun député ne correspond aux filtres actuels.');
+            return;
+        }
+        var count = parseInt(els.randomCount.value, 10);
+        if (isNaN(count) || count < 1) count = DEFAULT_RANDOM_COUNT;
+        count = Math.min(count, pool.length);
+        els.randomCount.value = count;
+
+        // Fisher-Yates shuffle
+        var shuffled = pool.slice();
+        for (var i = shuffled.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = shuffled[i];
+            shuffled[i] = shuffled[j];
+            shuffled[j] = tmp;
+        }
+
+        selected = new Set(shuffled.slice(0, count).map(function (d) { return d.email; }));
+        renderList();
+        showToast(count + ' député' + (count > 1 ? 's' : '') + ' tiré' + (count > 1 ? 's' : '') + ' au hasard.');
+    }
+
+    function enablePicker() {
+        [els.search, els.filterDepartement, els.filterRegion, els.filterGroupe,
+         els.selectAll, els.selectNone, els.randomCount, els.selectRandom].forEach(function (el) {
+            el.disabled = false;
+        });
+    }
+
+    function loadDeputies() {
+        fetch(DATA_URL)
+            .then(function (response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.json();
+            })
+            .then(function (data) {
+                deputies = data
+                    .filter(function (d) { return d && d.email && d.nom; })
+                    .sort(function (a, b) { return a.nom.localeCompare(b.nom, 'fr'); });
+                fillSelect(els.filterDepartement, uniqueSorted('departement'));
+                fillSelect(els.filterRegion, uniqueSorted('region'));
+                fillSelect(els.filterGroupe, uniqueSorted('groupe'));
+                enablePicker();
+                // Default: a random sample rather than all 577 deputies, so
+                // the generated mailto link stays within length limits.
+                els.randomCount.value = DEFAULT_RANDOM_COUNT;
+                randomSelect();
+            })
+            .catch(function (err) {
+                console.error('Impossible de charger les députés :', err);
+                els.list.innerHTML = '';
+                var status = document.createElement('div');
+                status.className = 'list-status error';
+                status.textContent = 'La liste des députés n\'a pas pu être chargée. ' +
+                    'Rechargez la page pour réessayer.';
+                els.list.appendChild(status);
+                els.counter.textContent = 'Erreur de chargement';
+            });
+    }
+
+    function buildLetter(prenom, nom, personalMessage) {
+        var body = 'Madame, Monsieur le Député,\n\n'
+            + 'Je vous écris pour exprimer mon opposition à la proposition de loi dite « Narcotrafic », '
+            + 'qui représente une menace directe pour les libertés fondamentales des citoyens français. '
+            + 'Sous couvert de lutte contre le trafic de drogue, ce texte élargit drastiquement les pouvoirs '
+            + 'de surveillance de la police et des services de renseignement, mettant en péril le droit à la '
+            + 'vie privée, la protection des données et la liberté d\'expression.\n\n'
+            + 'Cette loi met en place :\n'
+            + '- une surveillance de masse secrète avec le « dossier coffre », empêchant les citoyens et leurs '
+            + 'avocats de contester les moyens utilisés contre eux ;\n'
+            + '- l\'affaiblissement du chiffrement, en imposant des portes dérobées aux messageries sécurisées '
+            + 'comme Signal et WhatsApp ;\n'
+            + '- la censure extrajudiciaire : la police pourrait supprimer des contenus sur Internet sans '
+            + 'intervention du juge ;\n'
+            + '- l\'activation à distance des micros et caméras des téléphones et ordinateurs ;\n'
+            + '- une extension du régime de « criminalité organisée » qui pourrait être détournée pour '
+            + 'surveiller des militants et des opposants politiques.\n\n'
+            + 'Cette loi ne s\'attaque pas aux criminels, elle affaiblit nos droits :\n'
+            + '- les véritables criminels continueront d\'utiliser des solutions sécurisées hors de portée '
+            + 'des autorités ;\n'
+            + '- en revanche, ce sont les citoyens, journalistes, avocats et militants qui subiront une '
+            + 'surveillance abusive et une censure arbitraire.\n\n'
+            + 'Si vous votez cette loi, vous porterez la responsabilité d\'un dangereux précédent pour la '
+            + 'démocratie française. Je vous demande de rejeter ce texte et de défendre les libertés '
+            + 'fondamentales.\n\n';
+
+        if (personalMessage) {
+            body += personalMessage + '\n\n';
+        }
+
+        body += 'Dans l\'attente de votre position sur ce texte, je vous prie d\'agréer, Madame, Monsieur '
+            + 'le Député, l\'expression de mes salutations distinguées.\n\n'
+            + prenom + ' ' + nom + '.\n';
+
+        return body;
+    }
+
+    function selectedEmails() {
+        return deputies
+            .filter(function (d) { return selected.has(d.email); })
+            .map(function (d) { return d.email; });
+    }
+
+    function generatePreview() {
+        var prenom = els.prenom.value.trim();
+        var nom = els.nom.value.trim();
+
+        if (!prenom || !nom) {
+            showToast('Veuillez indiquer votre prénom et votre nom.');
+            return;
+        }
+        if (selected.size === 0) {
+            showToast('Sélectionnez au moins un destinataire.');
+            return;
+        }
+
+        var body = buildLetter(prenom, nom, els.message.value.trim());
+        var emails = selectedEmails();
+
+        els.previewText.textContent = body;
+        els.previewBox.hidden = false;
+        els.emailsText.textContent = emails.join(', ');
+        els.emailsBox.hidden = false;
+        els.actions.hidden = false;
+        els.mailtoHint.hidden = false;
+
+        els.mailtoBtn.textContent = emails.length > MAILTO_SOFT_LIMIT
+            ? 'Envoyer par email (liste longue)'
+            : 'Envoyer par email (' + emails.length + ' destinataire' + (emails.length > 1 ? 's' : '') + ')';
+
+        els.mailtoBtn.onclick = function () {
+            if (emails.length > MAILTO_SOFT_LIMIT) {
+                showToast('Liste longue : si votre messagerie ne s\'ouvre pas, utilisez « Copier les emails ».');
+            }
+            var mailto = 'mailto:infos@assemblee-nationale.fr'
+                + '?cc=contact@franckferman.fr'
+                + '&bcc=' + encodeURIComponent(emails.join(','))
+                + '&subject=' + encodeURIComponent('Lettre d\'un citoyen engagé - Opposition à la Loi Narcotrafic')
+                + '&body=' + encodeURIComponent(body);
+            window.location.href = mailto;
+        };
+
+        els.previewBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function copyText(text, successMessage) {
+        navigator.clipboard.writeText(text)
+            .then(function () { showToast(successMessage); })
+            .catch(function (err) {
+                console.error('Erreur lors de la copie :', err);
+                showToast('La copie a échoué.');
+            });
+    }
+
+    [els.search, els.filterDepartement, els.filterRegion, els.filterGroupe].forEach(function (el) {
+        el.addEventListener('input', renderList);
+    });
+
+    els.selectAll.addEventListener('click', function () { setSelectionForVisible(true); });
+    els.selectNone.addEventListener('click', function () { setSelectionForVisible(false); });
+    els.selectRandom.addEventListener('click', randomSelect);
+    els.previewBtn.addEventListener('click', generatePreview);
+    els.copyMessageBtn.addEventListener('click', function () {
+        copyText(els.previewText.textContent, 'Message copié dans le presse-papiers.');
+    });
+    els.copyEmailsBtn.addEventListener('click', function () {
+        copyText(els.emailsText.textContent, 'Emails copiés dans le presse-papiers.');
+    });
+
+    loadDeputies();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python (used by the data update workflow)
+__pycache__/

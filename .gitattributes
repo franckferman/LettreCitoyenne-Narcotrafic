@@ -1,0 +1,5 @@
+# Normalize line endings to LF for all text files
+* text=auto eol=lf
+
+# Images must never be treated as text
+*.png binary
